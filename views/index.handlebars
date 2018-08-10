@@ -1,0 +1,98 @@
+
+{{!-- Templating for all Articles  --}}
+
+{{!-- Iterate Over all the articles --}}
+{{#each articles}}
+  <ul class="collapsible" data-collapsible="accordion">
+
+    <!-- Article Drop Down -->
+    <li>
+      <div style="background-color: white;" class="collapsible-header green lighten-2">
+       <!-- <i class="material-icons">add</i> <b>{{updated}}</b> -->
+        <div id="headlineContainer" ><i class="material-icons">view_headline</i><b>{{headline}}</b><br/>{{timestamp}}</div>
+      </div>
+      <div class="collapsible-body" style="background-color: white;">
+        <p>
+          {{summary}}
+
+          <br><br>
+
+          <i><a href="{{URL}}" target="_blank">Article located here.</a>.</i>
+           
+        </p>
+          
+      </div>
+    </li>
+
+
+    <!-- Add Comments Drop Down -->
+    <li>
+      <div class="collapsible-header"><i class="material-icons">note_add</i></div>
+      <div class="collapsible-body" >
+
+        <form class="comment-form collapsibleForm" id="form-add-{{_id}}" data-id="{{_id}}"  >
+
+          <!-- Author Name Input -->
+          <div class="row">
+            <div class="input-field col s2"></div>
+            <div class="input-field col s8">
+              <input name="name" type="text" class="name validate">
+              <label for="name">Name:</label>
+            </div>
+          </div>
+          
+          <!-- Comment Input -->
+          <div class="row">
+            <div class="input-field col s2"></div>
+            <div class="input-field col s8">
+              <textarea name="content" class="content materialize-textarea"></textarea>
+              <label for="content">Comment:</label>
+            </div>
+          </div>
+
+            <!-- Submit Button -->
+            <div class="row">
+              <div class="input-field col s2"></div>
+              <div class="input-field col s8">
+              <center><input class="btn add-comment-button" data-id="{{_id}}" type="submit" value="Submit"></center>
+              </div>
+            </div>
+          
+        </form>
+
+      </div>
+    </li>
+
+
+    <!-- View Comments Drop Down -->
+    <li>
+      <div class="collapsible-header"><i id="viewComments" class="material-icons" data-id="{{_id}}" >short_text</i></div>
+      <div class="collapsible-body" style="background-color: white;">
+     
+          {{!-- Article has comments so iterate over them  --}}
+          <ul class="collection">
+            
+              <li class="collection-item">
+
+                {{!-- Add Author Name --}}          
+                <div id="name-{{_id}}"></div>            {{! "name-"  returned undefined }} 
+
+                
+
+                {{!-- Add the Content of the Comment --}}
+                <div id="content-{{_id}}"></div>        {{! "content-"  returned undefined}}
+
+              </li> 
+          </ul>
+        
+        {{!-- No comments, so display message --}}
+         
+          <p id="noContent-{{_id}}">No Responses <i class="material-icons">info</i> </p>
+      
+            
+        
+      </div>
+    </li>
+
+  </ul>
+{{/each}}

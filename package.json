@@ -1,0 +1,26 @@
+{
+  "name": "mongo_scraper",
+  "version": "1.0.0",
+  "description": "\"Scraping The Onion website and storing articles and comments inside mongodb\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Travis Margetts",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "moment": "^2.22.2",
+    "mongojs": "^2.6.0",
+    "mongoose": "^5.2.7",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "request": "^2.87.0"
+  }
+}
