@@ -166,15 +166,15 @@ app.use(logger("dev"));
 
 // Connect to the Mongo DB
 // Create a collection to populate the collection//
-mongoose.connect("mongodb://localhost/onionScraper");
+// mongoose.connect("mongodb://localhost/onionScraper");
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/onionScraper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/onionScraper";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-// mongoose.Promise = Promise;
-// mongoose.connect(MONGODB_URI);
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
 
 // Routes
 
